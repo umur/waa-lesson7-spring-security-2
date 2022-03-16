@@ -42,7 +42,7 @@ public class SecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter 
         super.configure(http);
         http.authorizeRequests()
                 .antMatchers("/api/v1/products*")
-                .hasRole("user")
+                .hasRole("CLIENT")
                 .anyRequest()
                 .permitAll();
     }
@@ -51,21 +51,5 @@ public class SecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter 
     public KeycloakSpringBootConfigResolver keycloakConfigResolver() {
         return new KeycloakSpringBootConfigResolver();
     }
-
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {// @formatter:off
-//        http
-//                .authorizeRequests(authz -> authz
-//                        .antMatchers(HttpMethod.GET, "/api/v1/products/**").hasAuthority("SCOPE_read")
-//                        .antMatchers(HttpMethod.POST, "/api/v1/products").hasAuthority("SCOPE_write")
-//                        .anyRequest().authenticated())
-//                .oauth2ResourceServer(oauth2 -> oauth2.jwt());
-//    }
-//
-//    @Override
-//    @Bean
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return super.authenticationManagerBean();
-//    }
 
 }
