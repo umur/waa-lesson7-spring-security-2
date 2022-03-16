@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-circular-references: true
   application:
     name: spring-security-demo-1
   datasource:
@@ -19,3 +21,12 @@ spring:
       mode: always
 server:
   port: 8080
+
+
+keycloak:
+ realm : SpringBootSecurityRealm
+ auth-server-url : http://127.0.0.1:28080/auth
+ resource : SpringBootSecurityClient
+ credentials.secret : xXjeAealmNRBTCAtqCApJnBpp80pb521
+ use-resource-role-mappings : true
+
